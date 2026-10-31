@@ -1,10 +1,13 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const chatsRouter = require('./routes/chats');
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/api/chats', chatsRouter);
 
 app.get('/api/health', (req, res) => res.json({ ok: true }));
 
